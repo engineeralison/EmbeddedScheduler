@@ -100,10 +100,14 @@ void setup() {
   count = 3;
 
   // Task 1 setup
+  // Flash an external LED for every 250 ms every 1 second
+
   DDRL |= 1 << DDL0; // set pin 49
   PORTL &= ~(1 << PORTL0); // initial off
 
   // Task 2 set up
+  // Make the speaker emit the beginning of the Mario theme song using hardware
+  // time technqiues.
   DDRH |= (1 << PH3); // set pin 6
 
   TCCR4A = 0;
@@ -113,6 +117,7 @@ void setup() {
   TCCR4B |= 1 << CS41; // prescaler 8
 
   // Task 3 set up
+  // Make the 7-segment LED display count up to 1 unit every 100 ms
   byte numDigits = 4; // Number of digits on the display
   byte digitPins[] = {10, 11, 12, 13}; // Pins controlling each digit
   byte segmentPins[] = {2, 3, 4, 5, 48, 7, 8, 9}; // Pins controlling each segment
